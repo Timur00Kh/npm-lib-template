@@ -1,9 +1,6 @@
-name: Publishing to npm
+name: test pr
 
-on:
-  push:
-    branches:
-    - *
+on: push
 
 jobs:
   build:
