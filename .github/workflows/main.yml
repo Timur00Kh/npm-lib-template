@@ -1,0 +1,27 @@
+name: Publishing to npm
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: installing dependencies
+      run: npm install
+    - name: running unit tests
+      run: npm run test
+    - name: generating production build
+      run: npm run build
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+        registry-url: 'https://registry.npmjs.org'
+    - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
