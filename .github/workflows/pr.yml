@@ -1,0 +1,21 @@
+name: Publishing to npm
+
+on:
+  push:
+    branches:
+    - *
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: installing dependencies
+      run: npm install
+    - name: running unit tests
+      run: npm run test
+    - name: generating production build
+      run: npm run build
+
