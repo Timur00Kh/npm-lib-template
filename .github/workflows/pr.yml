@@ -1,9 +1,6 @@
 name: Publishing to npm
 
-on:
-  push:
-    branches:
-    - *
+on: push
 
 jobs:
   build:
