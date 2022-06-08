@@ -1,4 +1,4 @@
-name: Publishing to npm
+name: test pr
 
 on: push
 
